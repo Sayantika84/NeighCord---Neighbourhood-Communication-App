@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neighborhood Alert - Chatroom</title>
+
+    <!-- Poppins Font -->
+    <link rel="stylesheet" href="fonts/font.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="tailwindmincss.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body class="h-full font-[Poppins]" style="background-image: url('images/bg_image.jpg'); background-size: cover; background-position: center;">
+
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="absolute top-0 left-0 pl-6 pt-4">
+            <img src="images/neighcord.png" class="w-auto h-40">
+        </div>
+        
+        <div class="w-200 h-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-200 shadow-lg rounded-lg p-6 w-96 hover:scale-105 transition duration-300" style="background-color: #9a71db;">
+ 
+            <h2 id="chatroom-title" class="text-2xl font-bold text-center mb-4" style="color: #321754;">Chatroom</h2>
+
+            <!-- Messages Display (Fixed Height & Scrollable) -->
+            <div id="messages" class="h-80 overflow-y-auto border border-gray-300 p-4 mb-4 rounded-lg bg-gray-50 shadow-md"></div>
+
+            <!-- Input Box & Buttons -->
+            <div class="flex flex-col space-y-2">
+                <div class="flex space-x-2">
+                    <input type="text" id="msg" placeholder="Type a message"
+                        class="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-md">
+                    <button onclick="sendMessage()"
+                        class="bg-[#321754] hover:scale-105 transition duration-300 text-white font-bold py-2 px-4 rounded-lg shadow-md">
+                        Send
+                    </button>
+                </div>
+                <button onclick="sendAlert()"
+                    class="bg-[#321754] hover:scale-105 transition duration-300 text-white py-2 px-4 rounded-lg shadow-md w-full">
+                    🚨 Alert
+                </button>
+            </div>            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

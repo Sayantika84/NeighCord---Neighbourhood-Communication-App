@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-white">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/font.css">
+    <title>Neighborhood Alert - Login</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="tailwindmincss.js"></script>
+</head>
+<body class="h-full font-[Poppins]" style="background-image: url('images/bg_image.jpg');">
+    <div class="flex min-h-full flex-col justify-center ">
+        <div class="absolute top-0 left-0 pl-6 pt-4">
+            <img src="images/neighcord.png" class="w-auto h-40">
+        </div>
+              
+        <div class="w-120 h-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-200 shadow-lg rounded-lg p-6 w-96 hover:scale-105 transition duration-300" style="background-color: #9a71db;">
+            <h2 class="text-2xl font-bold text-center mb-4" style="color: #321754;">Login</h2>
+    
+            <label class="block font-medium" style="color: #321754;">Name</label>
+            <input type="text" id="name" placeholder="Enter your name"
+                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-2 mb-3 hover:scale-105 transition duration-300 shadow-lg" style="--tw-ring-color: blue-400;"> 
+    
+            <label class="block font-medium" style="color: #321754;">Location</label>
+            <input type="text" id="location" placeholder="Enter your location"
+                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4 hover:scale-105 transition duration-300 shadow-lg">
+    
+            <button onclick="joinChat()" 
+                class="w-full text-white font-bold py-2 px-4 rounded-lg hover:scale-105 transition duration-300 shadow-lg" style="background-color: #321754;">
+                Join Chatroom
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        function joinChat() {
+            let name = document.getElementById("name").value;
+            let location = document.getElementById("location").value.toLowerCase();
+
+            if (!name || !location) {
+                alert("Please enter both name and location.");
+                return;
+            }
+
+            // Store user details and redirect to chatroom
+            sessionStorage.setItem("name", name);
+            sessionStorage.setItem("location", location);
+            window.location.href = "chat.html";
+        }
+    </script>
+
+</body>
+</html>
