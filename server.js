@@ -13,11 +13,11 @@ const io = new Server(server, {
 
 let chatrooms = {}; // Store active chatrooms
 
-app.use(express.static("docs")); // Serve frontend files
+app.use(express.static("public")); // Serve frontend files
 
 // Add this route below the static file serving
 app.get("/chat.html", (req, res) => {
-    res.sendFile(__dirname + "/docs/chat.html");
+    res.sendFile(__dirname + "/public/chat.html");
 });
 
 function capitalizeFirstLetter(str) {
